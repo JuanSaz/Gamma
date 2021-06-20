@@ -1,6 +1,5 @@
 package com.jdev.gamma
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -15,15 +14,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
-import kotlinx.android.synthetic.main.activity_auth.iniciarSesionButton
-import kotlinx.android.synthetic.main.activity_auth.inputContraseña
-import kotlinx.android.synthetic.main.activity_auth.inputEmail
-import kotlinx.android.synthetic.main.activity_create.*
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 
 class AuthActivity : AppCompatActivity() {
@@ -50,7 +40,7 @@ class AuthActivity : AppCompatActivity() {
                 super.updateDrawState(ds)
                 ds.color= Color.rgb(	250, 115, 22)
                 ds.isUnderlineText= (false)
-                createText.highlightColor = Color.TRANSPARENT;
+                createText.highlightColor = Color.TRANSPARENT
             }
         }
         spannableString.setSpan(clickableSpan,0,13, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
@@ -66,7 +56,7 @@ class AuthActivity : AppCompatActivity() {
 
                 if(it.isSuccessful){
                     showHome(it.result?.user?.email ?: "", ProviderType.Email)
-                    val toast = Toast.makeText(applicationContext, "Sesión Iniciada", Toast.LENGTH_SHORT)
+                    val toast = Toast.makeText(applicationContext, "Signed in", Toast.LENGTH_SHORT)
                     toast.show()
                 }
                     else{

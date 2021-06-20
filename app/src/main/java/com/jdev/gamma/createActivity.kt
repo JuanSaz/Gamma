@@ -40,17 +40,17 @@ class createActivity : AppCompatActivity() {
                     )
                 )
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(inputEmail.text.toString(), inputContraseña.text.toString()) .addOnCompleteListener {
-                    if(it.isSuccessful){
+                    //if(it.isSuccessful){
                         showAuth(it.result?.user?.email ?: "", ProviderType.Email)
-                        val toast = Toast.makeText(applicationContext, "Usuario Creado", Toast.LENGTH_SHORT)
+                        val toast = Toast.makeText(applicationContext, "user created", Toast.LENGTH_SHORT)
                         toast.show()
-                    }
-                    else{
-                        //showError()
-                 }
+                    //}
              }
           }
-       }
+            else{
+                showError()
+            }
+        }
     }
 
 
