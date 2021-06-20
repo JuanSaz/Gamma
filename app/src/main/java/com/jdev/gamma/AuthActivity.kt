@@ -10,6 +10,7 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -65,6 +66,8 @@ class AuthActivity : AppCompatActivity() {
 
                 if(it.isSuccessful){
                     showHome(it.result?.user?.email ?: "", ProviderType.Email)
+                    val toast = Toast.makeText(applicationContext, "Sesión Iniciada", Toast.LENGTH_SHORT)
+                    toast.show()
                 }
                     else{
                         showError()

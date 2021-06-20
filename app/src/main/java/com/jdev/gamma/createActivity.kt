@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -41,6 +42,8 @@ class createActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(inputEmail.text.toString(), inputContraseña.text.toString()) .addOnCompleteListener {
                     if(it.isSuccessful){
                         showAuth(it.result?.user?.email ?: "", ProviderType.Email)
+                        val toast = Toast.makeText(applicationContext, "Usuario Creado", Toast.LENGTH_SHORT)
+                        toast.show()
                     }
                     else{
                         //showError()
