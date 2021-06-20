@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1000653591130",
+    "project_id": "gamma-21",
+    "storage_bucket": "gamma-21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000653591130:android:864269f9265bc100b3fe63",
+        "android_client_info": {
+          "package_name": "com.jdev.gamma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000653591130-grml2b79h8im2hg9dvh63s5tf6fl5ko6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_qXQK3FyHUTPSjj6udIIdb8npLi_vNiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000653591130-grml2b79h8im2hg9dvh63s5tf6fl5ko6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
