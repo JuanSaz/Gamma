@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import kotlinx.android.synthetic.main.activity_auth.*
 import kotlinx.android.synthetic.main.activity_auth.iniciarSesionButton
 import kotlinx.android.synthetic.main.activity_auth.inputContraseña
@@ -58,23 +59,28 @@ class AuthActivity : AppCompatActivity() {
         createText.movementMethod= LinkMovementMethod.getInstance()
     }
 
-    private fun setup(){
-        iniciarSesionButton.setOnClickListener{
-            if (inputEmail.text.isNotEmpty() && inputContraseña.text.isNotEmpty()){
+    private fun setup() {
+        iniciarSesionButton.setOnClickListener {
+            if (inputEmail.text.isNotEmpty() && inputContraseña.text.isNotEmpty()) {
 
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(inputEmail.text.toString(), inputContraseña.text.toString()) .addOnCompleteListener {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    inputEmail.text.toString(),
+                    inputContraseña.text.toString()
+                ).addOnCompleteListener {
 
-                if(it.isSuccessful){
-                    showHome(it.result?.user?.email ?: "", ProviderType.Email)
-                    val toast = Toast.makeText(applicationContext, "Sesión Iniciada", Toast.LENGTH_SHORT)
-                    toast.show()
-                }
-                    else{
-                        showError()
-                        }
+                    if (it.isSuccessful) {
+                        showHome(it.result?.user?.email ?: "", ProviderType.Email)
+                        val toast = Toast.makeText(applicationContext,"Sesión Iniciada",Toast.LENGTH_SHORT)
+                        toast.show()
                     }
+                    else{
+                        val toast = Toast.makeText(applicationContext,"Sesion Error",Toast.LENGTH_SHORT)
+                        toast.show()
+                        //showError()
+                        }
                 }
             }
+        }
     }
 
 
